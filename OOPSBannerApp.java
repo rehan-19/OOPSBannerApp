@@ -52,6 +52,37 @@ public class OOPSBannerApp {
 
     // Render banner using map lookup
     public static void renderBanner(String word, Map<Character, String[]> map) {
+        CharacterPatternMap oPattern = new CharacterPatternMap('O', new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        });
+
+        CharacterPatternMap pPattern = new CharacterPatternMap('P', new String[]{
+                "****** ",
+                "*     *",
+                "*     *",
+                "****** ",
+                "*      ",
+                "*      ",
+                "*      "
+        });
+
+        CharacterPatternMap sPattern = new CharacterPatternMap('S', new String[]{
+                " ***** ",
+                "*     ",
+                "*     ",
+                " ***** ",
+                "      *",
+                "      *",
+                " ***** "
+        });
+
+        CharacterPatternMap[] patterns = {oPattern, pPattern, sPattern};
 
         for (int row = 0; row < 7; row++) {
 
@@ -66,6 +97,90 @@ public class OOPSBannerApp {
                 }
             }
 
+                for (CharacterPatternMap pattern : patterns) {
+                    if (pattern.getCharacter() == c) {
+                        line.append(pattern.getPattern()[row]).append("   ");
+                    }
+                }
+            }
+
+            System.out.println(line);
+        }
+    }
+
+    // Static Inner Class
+    static class CharacterPatternMap {
+
+        private char character;
+        private String[] pattern;
+
+        public CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+    // Method for letter S
+    public static String[] getS() {
+        return new String[]{
+            " ***** ",
+            "*     ",
+            "*     ",
+            " ***** ",
+            "      *",
+            "      *",
+            " ***** "
+        };
+        String[] banner = {
+            String.join("   ", 
+                " ***** ", 
+                " ***** ", 
+                " ******", 
+                " ******"),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*     *", 
+                "*     "),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*     *", 
+                "*     "),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "****** ", 
+                " ***** "),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*      ", 
+                "      *"),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*      ", 
+                "      *"),
+
+            String.join("   ", 
+                " ***** ", 
+                " ***** ", 
+                "*      ", 
+                " ***** ")
+        };
+
+        for (String line : banner) {
             System.out.println(line);
         }
     }
