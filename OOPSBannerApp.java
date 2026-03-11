@@ -2,40 +2,74 @@ public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        String[] O = {
-            " ***** ",
-            "*     *",
-            "*     *",
-            "*     *",
-            "*     *",
-            "*     *",
-            " ***** "
-        };
+        String word = "OOPS";
+
+        CharacterPatternMap oPattern = new CharacterPatternMap('O', new String[]{
+                " ***** ",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                "*     *",
+                " ***** "
+        });
+
+        CharacterPatternMap pPattern = new CharacterPatternMap('P', new String[]{
+                "****** ",
+                "*     *",
+                "*     *",
+                "****** ",
+                "*      ",
+                "*      ",
+                "*      "
+        });
+
+        CharacterPatternMap sPattern = new CharacterPatternMap('S', new String[]{
+                " ***** ",
+                "*     ",
+                "*     ",
+                " ***** ",
+                "      *",
+                "      *",
+                " ***** "
+        });
+
+        CharacterPatternMap[] patterns = {oPattern, pPattern, sPattern};
+
+        for (int row = 0; row < 7; row++) {
+
+            StringBuilder line = new StringBuilder();
+
+            for (char c : word.toCharArray()) {
+
+                for (CharacterPatternMap pattern : patterns) {
+                    if (pattern.getCharacter() == c) {
+                        line.append(pattern.getPattern()[row]).append("   ");
+                    }
+                }
+            }
+
+            System.out.println(line);
+        }
     }
 
-    // Method for letter P
-    public static String[] getP() {
-        return new String[]{
-            "****** ",
-            "*     *",
-            "*     *",
-            "****** ",
-            "*      ",
-            "*      ",
-            "*      "
-        };
-    }
+    // Static Inner Class
+    static class CharacterPatternMap {
 
-    // Method for letter S
-    public static String[] getS() {
-        return new String[]{
-            " ***** ",
-            "*     ",
-            "*     ",
-            " ***** ",
-            "      *",
-            "      *",
-            " ***** "
-        };
+        private char character;
+        private String[] pattern;
+
+        public CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+
+        public char getCharacter() {
+            return character;
+        }
+
+        public String[] getPattern() {
+            return pattern;
+        }
     }
 }
