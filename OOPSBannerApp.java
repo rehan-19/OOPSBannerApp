@@ -2,38 +2,51 @@ public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        String[] O = {
-                " ***** ",
-                "*     *",
-                "*     *",
-                "*     *",
-                "*     *",
-                "*     *",
-                " ***** "
+        String[] banner = {
+            String.join("   ", 
+                " ***** ", 
+                " ***** ", 
+                " ******", 
+                " ******"),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*     *", 
+                "*     "),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*     *", 
+                "*     "),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "****** ", 
+                " ***** "),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*      ", 
+                "      *"),
+
+            String.join("   ", 
+                "*     *", 
+                "*     *", 
+                "*      ", 
+                "      *"),
+
+            String.join("   ", 
+                " ***** ", 
+                " ***** ", 
+                "*      ", 
+                " ***** ")
         };
 
-        String[] P = {
-                "****** ",
-                "*     *",
-                "*     *",
-                "****** ",
-                "*      ",
-                "*      ",
-                "*      "
-        };
-
-        String[] S = {
-                " ***** ",
-                "*      ",
-                "*      ",
-                " ***** ",
-                "      *",
-                "      *",
-                " ***** "
-        };
-
-        for (int i = 0; i < 7; i++) {
-            String line = String.join("   ", O[i], O[i], P[i], S[i]);
+        for (String line : banner) {
             System.out.println(line);
         }
     }
